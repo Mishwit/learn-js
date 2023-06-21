@@ -1,15 +1,10 @@
 "use strict";
 
-const firstName = "John";
-const lastName = "Travolta";
+let i = 0;
+while (i < 3) {
+  // выводит 0, затем 1, затем 2
+  alert(i);
+  i++;
+}
 
-const user = {
-  firstName,
-  lastName,
-  birthYear: 1998,
-  calcAge: function () {
-    return 2023 - user.birthYear;
-  },
-};
-
-console.log(user.calcAge());
+alert(i);
