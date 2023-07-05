@@ -172,8 +172,8 @@
 
 // ---FUNCTION EXPRESSION---
 
-let result2 = function (a, b, c) {
-  return a + b - c;
-};
+// let result2 = function (a, b, c) {
+//   return a + b - c;
+// };
 
-console.log(result2(10, 4, 2));
+// console.log(result2(10, 4, 2));
