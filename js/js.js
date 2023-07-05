@@ -1,5 +1,63 @@
 "use strict";
 
+// ---BMI CALCULATOR---
+
+// const massPiter = 72,
+//   heighPiter = 1.88,
+//   massDenis = 82,
+//   heighDenis = 1.73;
+
+// const bmiPiter = massPiter / heighPiter ** 2;
+// bmiDenis = massDenis / (heighDenis * heighDenis);
+// bmiHigher = bmiPiter > bmiDenis;
+
+// console.log(bmiHigher);
+
+// ---LOVE CALCULATOR---
+
+// const firstName = prompt("Напишите первое имя");
+
+// const secondName = prompt("Напишите второе имя");
+
+// const randomNumber = Math.floor(Math.random() * 100);
+
+// if (
+//   randomNumber < 33 &&
+//   firstName != null &&
+//   secondName != null &&
+//   firstName != "" &&
+//   secondName != ""
+// ) {
+//   alert(
+//     `Результат совместимости имён ${firstName} и ${secondName} равен ${randomNumber}, вам нужно поискать кого-нибудь получше!`
+//   );
+// } else if (
+//   randomNumber >= 33 &&
+//   randomNumber < 66 &&
+//   firstName != null &&
+//   secondName != null &&
+//   firstName != "" &&
+//   secondName != ""
+// ) {
+//   alert(
+//     `Результат совместимости имён ${firstName} и ${secondName} равен ${randomNumber}, совместимость хорошая, но может быть и лучше!`
+//   );
+// } else if (
+//   randomNumber >= 66 &&
+//   firstName != null &&
+//   secondName != null &&
+//   firstName != "" &&
+//   secondName != ""
+// ) {
+//   alert(
+//     `Результат совместимости имён ${firstName} и ${secondName} равен ${randomNumber}, вы отлично подходите друг другу!`
+//   );
+// } else {
+//   alert("Упс, вы не ввели имя, попробуйте ещё раз!");
+// }
+
+// ---ACCES CHECK---
+
 // let userName = prompt("Кто здесь?", "");
 
 // if (userName === "Админ") {
@@ -16,6 +74,8 @@
 // } else {
 //   alert("Я вас не знаю");
 // }
+
+// ---NUM CHECK WITH SWITCH---
 
 // let num = 100;
 // do {
@@ -54,6 +114,8 @@
 //     alert("Нет таких значений");
 // }
 
+// ---CHECK AGE---
+
 // function checkAge(age) {
 //   if (age >= 18) {
 //     return true;
@@ -70,6 +132,8 @@
 //   alert("Доступ запрещён!");
 // }
 
+// ---COMMON FUNCTION CHECK---
+
 // let userName = "Vasya";
 
 // function showMessage() {
@@ -77,11 +141,39 @@
 //   alert(message);
 // }
 
+// ---RANDOM NUM BETWEEN 100 AND 200---
+
 // showMessage();
-function randomInt() {
-  const min = 100;
-  const max = 200;
-  let rand = Math.floor(min + Math.random() * (max + 1 - min));
-  console.log(rand);
-}
-randomInt();
+// function randomInt() {
+//   const min = 100;
+//   const max = 200;
+//   let rand = Math.floor(min + Math.random() * (max + 1 - min));
+//   console.log(rand);
+// }
+// randomInt();
+
+// ---COMMON FUNCTION---
+
+// function calc(a, b, c, d) {
+//   console.log(a + b + c);
+//   return a + b + c;
+// }
+
+// calc(1, 3, 5);
+
+// ---FUNCTION DECLARATION---
+
+// function calc(apple, orange) {
+//   return apple + orange;
+// }
+
+// const result = calc("53", 5);
+// console.log(result);
+
+// ---FUNCTION EXPRESSION---
+
+let result2 = function (a, b, c) {
+  return a + b - c;
+};
+
+console.log(result2(10, 4, 2));
