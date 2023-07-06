@@ -177,3 +177,186 @@
 // };
 
 // console.log(result2(10, 4, 2));
+
+// function myFn(a = "Ваше число ", b = 7 + 2) {
+//   console.log(a + b);
+// }
+
+// myFn("Номер вашего билета ");
+
+// ---CALLBACK FUNCTIONS---
+
+// confirm("Сколько вам лет?");
+
+// ---CALLBACK FUNCTION DECLARATION ---
+
+// function ask(question, yes, no) {
+//   if (confirm(question)) {
+//     yes();
+//   } else no();
+// }
+
+// function showOk() {
+//   alert("Спасибо за согласие");
+// }
+
+// function showCancel() {
+//   alert("Вы отменили выполнение");
+// }
+
+// ask("Вы согласны?", showOk, showCancel);
+
+// ---CALLBACK FUNCTION EXPRESSION ---
+
+// function ask(question, yes, no) {
+//   if (confirm(question)) {
+//     yes();
+//   } else no();
+// }
+
+// ask(
+//   "Вы согласны?",
+//   function () {
+//     alert("Спасибо за согласие");
+//   },
+//   function () {
+//     alert("Вы отменили выполнение");
+//   }
+// );
+
+// ---ARROW FUNCTIONS---
+
+// ===First example===
+
+// let funcArrow = (arg1, arg2) => {
+//   return someExpression;
+// };
+
+// ===Second example===
+
+// const myArrowFn = (a) => console.log(a);
+
+// ===Third example===
+
+// const myArrowFn = (a, b) => a + b;
+// console.log(myArrowFn(5, 5));
+
+// ---CALLBACK ARROW FUNCTION---
+
+// function ask(question, yes, no) {
+//   if (confirm(question)) {
+//     yes();
+//   } else no();
+// }
+
+// ask(
+//   "Вы согласны?",
+//   () => alert("Спасибо за согласие"),
+//   () => alert("Вы отменили выполнение")
+// );
+
+// ---ARROW FUNCTION WITHOUT BRACES---
+
+// let sum = (a, b) => a + b;
+
+// console.log(sum(5, 5));
+
+// ---ARROW FUNCTION WITH BRACES---
+
+// let sum = (a, b) => {
+//   return a + b;
+// };
+// console.log(sum(1, 2));
+
+// ---WINNER CALCULATOR---
+
+// const calcAverage = (res1, res2, res3) => (res1 + res2 + res3) / 3;
+
+// let scoreKats = calcAverage(44, 23, 71);
+// let scoreDucks = calcAverage(65, 54, 49);
+
+// function checkWinner(avgKats, avgDucks) {
+//   if (avgKats >= 2 * avgDucks) {
+//     console.log(
+//       `crazyKats победили с результатом ${avgKats} против funnyDucks ${avgDucks}`
+//     );
+//   } else if (avgDucks >= 2 * avgKats) {
+//     console.log(
+//       `funnyDucks  победили с результатом ${avgDucks} против crazyKats ${avgKats}`
+//     );
+//   } else {
+//     console.log("У нас ничья!");
+//   }
+// }
+
+// checkWinner(scoreKats, scoreDucks);
+
+// //Data 2
+
+// scoreKats = calcAverage(85, 54, 41);
+// scoreDucks = calcAverage(23, 34, 27);
+// checkWinner(scoreKats, scoreDucks);
+
+// ---OBJECTS---
+
+// const user = {
+//   name: "John",
+//   age: 30,
+// };
+
+// user.sex = "male";
+// console.log(user);
+
+// delete user.sex;
+// console.log(user);
+
+// ---OBJECTS BRACKET NOTATION---
+
+// const user = {
+//   name: "John",
+//   age: 30,
+// };
+
+// user["sex"] = "male";
+// console.log(user);
+
+// delete user["sex"];
+// console.log(user);
+
+// const propertyName = "newProperty";
+
+// user[propertyName + " 2"] = "propertyValue";
+// console.log(user["newProperty 2"]);
+
+// const answer = prompt("Напишитe слово name или age", "");
+
+// if (answer == "" || answer == undefined) {
+//   alert("Вы отменили операцию или не ввели слова");
+// } else {
+//   alert(user[answer]);
+// }
+
+// const user = {
+//   name: "John",
+//   age: 30,
+//   placeOfBirth: {
+//     country: "Russia",
+//     city: "Novgorod",
+//   },
+// };
+
+// user.placeOfBirth.country = "USA";
+// user.placeOfBirth["dateOfBirth"] = 1992;
+// delete user["placeOfBirth"].city;
+// console.log(user);
+
+const firstName = "John";
+const lastName = "Travolta";
+
+const user = {
+  firstName,
+  lastName,
+  placeOfBirth: "Novgorod",
+};
+
+console.log(user);
