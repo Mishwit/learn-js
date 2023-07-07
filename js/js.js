@@ -350,13 +350,113 @@
 // delete user["placeOfBirth"].city;
 // console.log(user);
 
-const firstName = "John";
-const lastName = "Travolta";
+// ---FUNCTION EXPRESSION---
 
-const user = {
-  firstName,
-  lastName,
-  placeOfBirth: "Novgorod",
-};
+// const firstName = "John";
+// const lastName = "Travolta";
 
-console.log(user);
+// function calcAge() {
+//   return 2023 - user.birthYear;
+// }
+
+// const user = {
+//   firstName,
+//   lastName,
+//   birthYear: 1992,
+//   calcAge: function () {
+//     return 2023 - user.birthYear;
+//   },
+// };
+
+// console.log(user.calcAge());
+
+// ---FUNCTION DECLARATION---
+
+// const firstName = "John";
+// const lastName = "Travolta";
+
+// function calcAge() {
+//   return 2023 - this.birthYear;
+// }
+
+// const userFirst = {
+//   firstName,
+//   lastName,
+//   birthYear: 1992,
+//   calcAge,
+// };
+
+// const userSecond = {
+//   firstName,
+//   lastName,
+//   birthYear: 2000,
+//   calcAge,
+// };
+
+// console.log(userFirst.calcAge());
+// console.log(userSecond.calcAge());
+
+// ---FUNCTION EXPRESSION---
+
+// const firstName = "John";
+// const lastName = "Travolta";
+
+// const userFirst = {
+//   firstName,
+//   lastName,
+//   birthYear: 1992,
+//   calcAge() {
+//     console.log(this);
+//     return 2023 - this.birthYear;
+//   },
+// };
+
+// console.log(userFirst.calcAge());
+
+// ---BMI CALC WITH OBJECTS---
+
+// function calcBmi() {
+//   this.bmiRes = this.mass / this.height ** 2;
+//   return this.bmiRes;
+// }
+
+// const piter = {
+//   name: "Piter",
+//   mass: 72,
+//   height: 1.88,
+//   calcBmi,
+// };
+
+// const denis = {
+//   name: "Denis",
+//   mass: 82,
+//   height: 1.73,
+//   calcBmi,
+// };
+
+// piter.calcBmi();
+// denis.calcBmi();
+
+// if (piter.bmiRes > denis.bmiRes) {
+//   console.log(
+//     `Индекс массы тела ${piter.name} - (${piter.bmiRes}), больше, чем у ;у ${denis.name} - (${denis.bmiRes})`
+//   );
+// } else if (piter.bmiRes < denis.bmiRes) {
+//   console.log(
+//     `Индекс массы тела ${piter.name} - (${piter.bmiRes}), меньше, чем у ${denis.name} - (${denis.bmiRes})`
+//   );
+// } else {
+//   console.log("Произошла ошибка. Попробуйте ещё раз");
+// }
+
+//  ---ARRAY---
+
+// const user = ["John", 30, "male"];
+
+// console.log(user);
+
+const year = 2023,
+  birthYear = 1992;
+const userArr = ["John", 30, 20, year - birthYear];
+
+console.log(userArr);
