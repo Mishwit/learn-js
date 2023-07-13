@@ -586,3 +586,183 @@
 //     console.log(`Вы победили, вам выпало число ${someNumber}`);
 //   }
 // }
+
+// ---COPYING REFERENCE TYPES---
+
+// ===EXAMPLE 1===
+
+// const obj = {
+//   name: "John",
+//   age: 30,
+// };
+
+// const obj2 = obj;
+// obj.age = "Я вроде меняю свойство age, только в obj";
+
+// console.log(obj);
+
+// console.log(obj2);
+
+// ===EXAMPLE 2 same result as EXAMPLE 3===
+
+// const obj = {
+//   name: "John",
+//   age: 30,
+// };
+
+// const obj2 = Object.assign({}, obj);
+// obj.age = "Я вроде меняю свойство age, только в obj";
+
+// console.log(obj);
+
+// console.log(obj2);
+
+// ===EXAMPLE 3 same result as EXAMPLE 3===
+
+// const obj = {
+//   name: "John",
+//   age: 30,
+// };
+
+// const obj2 = { ...obj };
+// obj.age = "Я вроде меняю свойство age, только в obj";
+
+// console.log(obj);
+
+// console.log(obj2);
+
+// ===EXAMPLE 4===
+
+// const obj = {
+//   name: "John",
+//   age: 30,
+//   someObj: {
+//     city: "Moscow",
+//   },
+// };
+
+// const obj2 = JSON.parse(JSON.stringify(obj));
+
+// obj.someObj.city = "New York";
+
+// console.log(obj);
+
+// console.log(obj2);
+
+// ---FIBONACCI GENERATOR---
+
+// function fibonacciGenerator(n) {
+//   let output = [];
+
+//   if (n === 1) {
+//     output = [0];
+//   } else if (n === 2) {
+//     output = [0, 1];
+//   } else {
+//     output = [0, 1];
+//     for (let i = 2; i < n; i++) {
+//       output.push(output.at(-2) + output.at(-1));
+//     }
+//   }
+
+//   return output;
+// }
+
+// let res = fibonacciGenerator(20);
+// console.log(res);
+
+// ---FOR OF (for arrays and pseudo-arrays---
+
+// let arr = ["Hello", 2, true, 4];
+
+// for (const value of arr) {
+//   console.log(value);
+// }
+
+// ---FOR IN (for objects)---
+
+// ===EXAMPLE 1===
+
+// let obj = {
+//   name: "John",
+//   lastName: "Travolta",
+//   age: 30,
+// };
+
+// for (const key in obj) {
+//   console.log(key);
+// }
+
+// ===EXAMPLE 2===
+
+// let obj = {
+//   name: "John",
+//   lastName: "Travolta",
+//   age: 30,
+// };
+
+// for (const key in obj) {
+//   console.log(obj[key]);
+// }
+
+// ===EXAMPLES===
+
+// let arr = [1, 2, 3, 4, 5];
+
+// for (let value of arr) {
+//   console.log(value);
+// }
+
+// -------------------
+
+// let obj = {
+//   name: "John",
+//   lastName: "Travolta",
+//   age: 30,
+// };
+
+// for (let key in obj) {
+//   console.log(obj[key]);
+// }
+
+// --------------
+
+// let arr = document.querySelectorAll("li");
+
+// for (let value of arr) {
+//   console.log(value);
+// }
+// ---INNER HTML (elem.InnerHTML)---
+
+// let elem = document.querySelector("h1");
+
+// let oldData = elem.innerHTML;
+
+// elem.innerHTML = `<p>${oldData}</p><p>ПРИВЕТ МИР</p>`;
+
+// ---TEXT CONTENT (elem.textContent)---
+
+// let elem = document.querySelector("h1");
+
+// let oldData = elem.innerHTML;
+
+// elem.textContent = `<p>${oldData}</p><p>ПРИВЕТ МИР</p>`;
+
+// ---OUTER HTML (elem.outerHTML)---
+
+// let elem = document.querySelector("h1");
+
+// let oldData = elem.innerHTML;
+
+// elem.outerHTML = "<p>ПРИВЕТ МИР</p>";
+
+// ---.DATA (elem.data)---
+
+let elem = document.querySelector("h1");
+
+let oldData = elem.innerHTML;
+
+elem.outerHTML = "<p>ПРИВЕТ МИР</p>";
+
+console.log(elem.firstChild);
+elem.firstChild.data = "я новый комментарий";
