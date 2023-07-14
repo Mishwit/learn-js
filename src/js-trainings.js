@@ -758,11 +758,186 @@
 
 // ---.DATA (elem.data)---
 
-let elem = document.querySelector("h1");
+// let elem = document.querySelector("h1");
 
-let oldData = elem.innerHTML;
+// let oldData = elem.innerHTML;
 
-elem.outerHTML = "<p>ПРИВЕТ МИР</p>";
+// elem.outerHTML = "<p>ПРИВЕТ МИР</p>";
 
-console.log(elem.firstChild);
-elem.firstChild.data = "я новый комментарий";
+// console.log(elem.firstChild);
+// elem.firstChild.data = "я новый комментарий";
+
+// ---CREATE ELEMENT---
+
+// let secondHeader = document.createElement("h2");
+// secondHeader.innerHTML = "Я заголовок второго уровня";
+// console.log(secondHeader);
+
+// ---CREATE TEXT NODE---
+
+// let header = document.querySelector("h1");
+// let secondHeader = document.createTextNode("Привет, я текст!");
+// secondHeader.innerHTML = "Я заголовок второго уровня";
+// header.prepend(secondHeader);
+// console.log(secondHeader);
+
+// ===BEFORE===
+
+// let header = document.querySelector("h1");
+// let secondHeader = document.createElement("h2");
+// secondHeader.innerHTML = "Я заголовок второго уровня";
+// header.before(secondHeader);
+// console.log(secondHeader);
+
+// ===AFTER===
+// let header = document.querySelector("h1");
+// let secondHeader = document.createElement("h2");
+// secondHeader.innerHTML = "Я заголовок второго уровня";
+// header.after(secondHeader);
+// console.log(secondHeader);
+
+// ===PREPEND===
+// let header = document.querySelector("h1");
+// let secondHeader = document.createElement("h2");
+// secondHeader.innerHTML = "Я заголовок второго уровня";
+// header.prepend(secondHeader);
+// console.log(secondHeader);
+
+// ===APPEND===
+
+// let header = document.querySelector("h1");
+// let secondHeader = document.createElement("h2");
+// secondHeader.innerHTML = "Я заголовок второго уровня";
+// header.append(secondHeader);
+// console.log(secondHeader);
+
+// ---INCERT ADJACENT HTML(insertAdjacentHTML/ELEMENT/TEXT)---
+
+// ===BEFORE BEGIN(beforebegin)===
+
+// let header = document.querySelector("h1");
+// let secondHeader = document.createElement("h2");
+// secondHeader.innerHTML = "Я заголовок второго уровня";
+// header.insertAdjacentHTML("beforebegin", "<p>Some Text</p>");
+// console.log(secondHeader);
+
+// ===AFTER BEGIN(afterbegin)===
+
+// let header = document.querySelector("h1");
+// let secondHeader = document.createElement("h2");
+// secondHeader.innerHTML = "Я заголовок второго уровня";
+// header.insertAdjacentHTML("afterbegin", "<p>Some Text</p>");
+// console.log(secondHeader);
+
+// ===BEFORE END(beforeend)===
+
+// let header = document.querySelector("h1");
+// let secondHeader = document.createElement("h2");
+// secondHeader.innerHTML = "Я заголовок второго уровня";
+// header.insertAdjacentHTML("beforeend", "<p>Some Text</p>");
+// console.log(secondHeader);
+
+// ===AFTER END(aftereend)===
+
+// let header = document.querySelector("h1");
+// let secondHeader = document.createElement("h2");
+// secondHeader.innerHTML = "Я заголовок второго уровня";
+// header.insertAdjacentHTML("afterend", "<p>Some Text</p>");
+// console.log(secondHeader);
+
+// ---MOVE, CLONE, REMOVE HTML ELEMENTS ---
+
+// ===MOVE===
+
+// let header = document.querySelector("h1");
+// let ul = document.querySelector("ul");
+
+// ul.prepend(header);
+
+// ===CLONE (with "true" clone all internal elements)===
+
+// let header = document.querySelector("h1");
+// let ul = document.querySelector("ul");
+
+// let ulClone = ul.cloneNode(); //"if true - cloning all internal elements"
+
+// header.prepend(ulClone);
+
+// ===REMOVE===
+
+// let header = document.querySelector("h1");
+// let ul = document.querySelector("ul");
+
+// header.remove();
+
+// ---CHANGING CSS STYLES WITH CSS---
+
+// let header = document.querySelector("h1");
+
+// ===EXAMPLE 1===
+// let header = document.querySelector("h1");
+// header.style.marginBottom = "100px";
+// header.style.fontSize = "50px";
+
+// ===EXAMPLE 2===
+// let header = document.querySelector("h1");
+// header.style.cssText = `
+// color: red;
+// margin-bottom:100px;
+// `;
+
+// ===CLASS LIST (classList)===
+
+// ===ADD class(.add) добавить класс===
+// header.classList.add("newClass");
+
+// ===REMOVE class(.remove) удалить класс===
+// let header = document.querySelector("h1");
+// header.classList.remove("newClass");
+
+// ===TOGGLE CLASS(.toggle) добавить класс, если его нет, а если он есть - удалить===
+// let header = document.querySelector("h1");
+// header.classList.toggle("newClass");
+
+// ===CONTAINS CLASS (.contains) проверка наличия класса, возвращает true/false===
+// let header = document.querySelector("h1");
+// header.classList.contains("newClass");
+
+// ===CLASS NAME (className)=== //удаляются все старые классы и прописываются, что мы указали в className
+// let header = document.querySelector("h1");
+// header.className = "newClass";
+
+// ===GET COMPUTED STYLE===
+// ===EXAMPLE 1===
+// let header = document.querySelector("h1");
+// let styleOfHeader = getComputedStyle(header);
+
+// styleOfHeader.marginBottom;
+// console.log(parseInt(styleOfHeader.marginBottom));
+
+// ===EXAMPLE 2===
+
+// let li = document.querySelectorAll("li");
+
+// for (let value of li) {
+//   value.classList.add("newClass");
+// }
+
+// ---ATTRIBUTE METHODS---
+
+// ===CHANGE ATTRIBUTE===
+
+// let img = document.querySelector("img");
+
+// img.src = "https://w.forfun.com/fetch/94/94c56e15f13f1de4740a76742b0b594f.jpeg";
+
+// ===HAS ATTRIBUTE(.hasAttribute)проверка наличия атрибута(true/false)===
+
+// ===GET ATTRIBUTE(.getAttribute)получаем значение атрибута===
+
+// ===SET ATTRIBUTE(.setAttribute)Устанавливем атрибут,Первый параметр - название, второй - значение===
+
+// ===REMOVE ATTRIBUTE(.removeAttribute)удаляем атрибут===
+
+// ---DOM ELEMENT EVENTS---
+// ===ADD EVENT LISTENER(.AddEventListener('event', function(){}))===
