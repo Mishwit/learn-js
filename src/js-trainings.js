@@ -1095,24 +1095,24 @@
 
 // ---REST---
 
-const obj = {
-  fruits: ["apple", "orange", "lemon", "watermelon"],
-  drinks: ["juice", "tea", "cocktail"],
-  food: {
-    soup: "borsch",
-    pasta: "spaghetti",
-  },
-};
+// const obj = {
+//   fruits: ["apple", "orange", "lemon", "watermelon"],
+//   drinks: ["juice", "tea", "cocktail"],
+//   food: {
+//     soup: "borsch",
+//     pasta: "spaghetti",
+//   },
+// };
 
-const [a, b, c, ...others] = [1, 2, 3, 4, 5, 6, 7];
-console.log(a, b, c, others);
+// const [a, b, c, ...others] = [1, 2, 3, 4, 5, 6, 7];
+// console.log(a, b, c, others);
 
-function calc(...numbers) {
-  let sum = 0;
-  for (let value of numbers) {
-    sum += value;
-  }
-  console.log(sum);
-}
+// function calc(...numbers) {
+//   let sum = 0;
+//   for (let value of numbers) {
+//     sum += value;
+//   }
+//   console.log(sum);
+// }
 
-calc(4, 6, 3, 6, 8);
+// calc(4, 6, 3, 6, 8);
