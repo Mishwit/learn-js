@@ -941,3 +941,178 @@
 
 // ---DOM ELEMENT EVENTS---
 // ===ADD EVENT LISTENER(.AddEventListener('event', function(){}))===
+
+// ---THIS---
+
+// ===EXAMPLE 1===
+
+// const user = {
+//   name: "John",
+//   age: 30,
+//   calcAge: calcAge,
+// };
+
+// user.calcAge();
+
+// function calcAge() {
+//   console.log(2023 - this.age);
+// }
+
+// ===EXAMPLE 2===
+
+// const user = {
+//   name: "John",
+//   age: 30,
+//   calcAge: function () {
+//     const self = this;
+//     console.log(this);
+//     function newFn() {
+//       console.log(self);
+//     }
+//     newFn();
+//   },
+// };
+
+// user.calcAge();
+
+// ===EXAMPLE 3 with arrow functions===
+
+// const user = {
+//   name: "John",
+//   age: 30,
+//   calcAge: function () {
+//     const newFn = () => {
+//       console.log(this);
+//     };
+//     newFn();
+//   },
+// };
+
+// user.calcAge();
+
+// ---DESTRUCTURING ARRAYS---
+
+// const arr = [
+//   "apple",
+//   "orange",
+//   "lemon",
+//   "watermelon",
+//   "juice",
+//   "tea",
+//   "cocktail",
+// ];
+
+// // const friutOne = arr[0];
+// // const friutTwo = arr[1];
+// // const friutThree = arr[2];
+
+// let [friutOne, friutTwo] = arr;
+// console.log(friutOne);
+// console.log(friutTwo);
+
+// // ===HARD EXAMPLE===
+// let a = friutOne;
+// friutOne = friutTwo;
+// friutTwo = a;
+// console.log(friutOne);
+// console.log(friutTwo);
+
+// // ===EASY EXAMPLE===
+// [friutOne, friutTwo] = [friutTwo, friutOne];
+
+// console.log(friutOne);
+// console.log(friutTwo);
+
+// function cocktailMixer([fruit1, fruit2, , , drink]) {
+//   console.log(`Вы приготовили ${fruit1} + ${fruit2} ${drink}`);
+// }
+
+// cocktailMixer(arr);
+
+// ---DESTRUCTURING OBJECTS---
+// let apple = "smallApple";
+// let lemon = "smallLemon";
+
+// const obj = {
+//   fruits: {
+//     apple: "apple",
+//     orange: "orange",
+//     lemon: "lemon",
+//     watermelon: "watermelon",
+//   },
+//   drinks: {
+//     juice: "juice",
+//     tea: "tea",
+//     cocktail: "cocktail",
+//   },
+// };
+
+// ===HARD EXAMPLE===
+
+// const { lemon, apple } = obj.fruits;
+
+// console.log(lemon);
+// console.log(apple);
+
+// ===EASY EXAMPLE===
+
+// const {
+//   fruits: { lemon: friutOne, apple },
+// } = obj;
+
+// console.log(friutOne);
+// console.log(apple);
+
+// ===EXAMPLE 1===
+// function cocktailMixer({ fruits: { apple, orange }, drinks: { juice } }) {
+//   console.log(`Вы приготовили ${apple} ${juice} и ${orange} ${juice}`);
+// }
+
+// cocktailMixer(obj);
+
+// ---SPREAD---
+
+// const obj = {
+//   fruits: ["apple", "orange", "lemon", "watermelon"],
+//   drinks: ["juice", "tea", "cocktail"],
+// };
+
+// console.log(...obj.fruits);
+
+// const str = "Hello";
+// console.log(...str);
+
+// const newFruits = [...obj.fruits];
+
+// const bigArr = [...obj.fruits, ...str, "world", ...obj.drinks];
+// console.log(bigArr);
+
+// function cocktailMixer(drink, ing1, ing2) {
+//   console.log(`Вы выбрали ${drink} из ${ing1} и ${ing2}`);
+// }
+
+// cocktailMixer("tea", ...obj.fruits);
+
+// ---REST---
+
+const obj = {
+  fruits: ["apple", "orange", "lemon", "watermelon"],
+  drinks: ["juice", "tea", "cocktail"],
+  food: {
+    soup: "borsch",
+    pasta: "spaghetti",
+  },
+};
+
+const [a, b, c, ...others] = [1, 2, 3, 4, 5, 6, 7];
+console.log(a, b, c, others);
+
+function calc(...numbers) {
+  let sum = 0;
+  for (let value of numbers) {
+    sum += value;
+  }
+  console.log(sum);
+}
+
+calc(4, 6, 3, 6, 8);
