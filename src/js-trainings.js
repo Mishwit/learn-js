@@ -1116,3 +1116,197 @@
 // }
 
 // calc(4, 6, 3, 6, 8);
+
+// ---SET---
+
+// const names = new Array(
+//   "Дмитрий",
+//   "Иван",
+//   "Анастасия",
+//   "Виктор",
+//   "Игорь",
+//   "Дмитрий",
+//   "Иван",
+//   "Анастасия"
+// );
+
+// console.log(names);
+
+// let uniqNames = new Set(names);
+// // uniqNames.add("Евгений");
+// // uniqNames.delete("Дмитрий");
+// // console.log(uniqNames);
+// // console.log(uniqNames.size);
+// // uniqNames.add("Евгений");
+// console.log(...uniqNames);
+
+// const updateNames = Array.from(uniqNames);
+// console.log(updateNames);
+
+// const name = "Dmitry";
+// const uniqLetters = new Set(name);
+// console.log(uniqLetters);
+
+// for (let value of uniqLetters) {
+//   console.log(value);
+// }
+
+// ---MAP---
+
+// const hotel = new Map();
+// hotel.set("categories", ["std", "eco", "suit", "lux"]);
+// hotel.set(true, "Мы открыты");
+// hotel.set(false, "Мы закрыты");
+// const arr = [2, 3];
+// hotel.set(arr, "Это массив");
+// hotel.delete(arr);
+// // hotel.clear();
+// console.log(hotel);
+// // console.log(hotel.get(arr));
+
+// // ---DATA STRUCTURE CONVERSION---
+
+// const hotel = new Map([
+//   ["categories", ["std", "eco", "suit", "lux"]],
+//   [true, "Мы открыты"],
+//   [false, "Мы закрыты"],
+// ]);
+// console.log(hotel);
+
+// for (let [key, value] of hotel) {
+//   console.log(`Ключ ${key}, Значение ${value}`);
+// }
+
+// const obj = {
+//   name: "John",
+//   lastName: "Travolta",
+//   age: 30,
+// };
+
+// const mapFromObj = new Map(Object.entries(obj));
+// console.log(mapFromObj);
+
+// const setFromMap = new Set(hotel);
+// console.log(setFromMap);
+
+// const arrFromMap = Array.from(hotel);
+// console.log(arrFromMap);
+
+// const arrFromObj = Object.entries(obj);
+// console.log(arrFromObj);
+
+// const objFromArr = Object.fromEntries(arrFromObj);
+// console.log(objFromArr);
+
+// // ---SLICE---
+
+// const airplane = new String("TAP Air Portugal");
+// const plane = "D430";
+// const checkSeat = function (seat) {
+//   const s = seat[0];
+//   if (s == "A") console.log("Ваше место у окна");
+//   else console.log("Ваше место не у окна");
+// };
+
+// checkSeat("A667");
+// checkSeat("B667");
+// // console.log(airplane);
+// // console.log(airplane[4]);
+// // console.log(airplane.indexOf("A"));
+// // console.log(airplane.lastIndexOf("A"));
+// // console.log(airplane.slice(0, airplane.indexOf(" ")));
+// // console.log(airplane.slice(4, 7));
+// // console.log(airplane.slice(airplane.lastIndexOf(" ") + 1));
+// // console.log(airplane.slice(-2));
+
+// // ---TO LOWER CASE, TO UPPERCASE, TRIM---
+// const airplane = "   TAP Air Portugal   ";
+// console.log(airplane.toLocaleLowerCase());
+// console.log(airplane.toLocaleUpperCase());
+// console.log(airplane.trim());
+
+// const priceRub = "2906р";
+// const priceUSD =
+//   priceRub.slice(0, priceRub.length - 1) / 72 + priceRub.replace("р", "$");
+// console.log(priceUSD);
+
+// const str = "Привет свет свет свет свет свет";
+// const correctStr = str.replace("свет", "мир");
+// console.log(correctStr);
+// const correctStrAll = str.replaceAll("свет", "мир");
+// console.log(correctStrAll);
+
+// // ---INCLUDES---
+
+// const flight = "s7ADR320";
+// console.log(flight.includes("7AD"));
+// console.log(flight.startsWith("s7"));
+// console.log(flight.endsWith("320"));
+
+// // ---SPLIT---
+// const newNames = "misha nastya mishwit tigrinaya mikhail anastasia";
+
+// // const arrFromStr = newNames.split(" ");
+// // console.log(arrFromStr);
+// // const strFromArray = arrFromStr.join("-- ");
+// // console.log(strFromArray);
+
+// function capitalNames(strNames) {
+//   const arrNames = strNames.split(" ");
+//   const newUpperNames = [];
+//   for (let n of arrNames) {
+//     newUpperNames.push(n[0].toUpperCase() + n.slice(1));
+//   }
+//   console.log(newUpperNames);
+// }
+
+// capitalNames(newNames);
+
+// // ---PAD START / PAD END / REPEAT---
+
+// const cardNumber = String(6543);
+// console.log(cardNumber.padStart(16, "*"));
+// console.log(cardNumber.padEnd(16, "*"));
+
+// const hello = "hello ";
+// console.log(hello.repeat(10));
+
+// // ---DEFAULT FUNCTION PARAMETERS---
+// const bookings = [];
+// function createBooking(
+//   flightNum,
+//   numPassengers = 1,
+//   price = 100 * numPassengers
+// ) {
+//   const booking = {
+//     flightNum,
+//     numPassengers,
+//     price,
+//   };
+//   console.log(booking);
+//   bookings.push(booking);
+// }
+
+// createBooking("343GRT", 5);
+
+// const flight = "432FRE";
+// const passenger = {
+//   name: "Misha",
+//   passport: 2314123135,
+// };
+
+// function checkIn(flightNum, passId) {
+//   (flightNum = "111RRR"), (passId.name = "Mr. " + passId.name);
+
+//   if (passId.passport == 2314123135) {
+//     console.log("Вы успешно прошли регистрацию!");
+//   } else {
+//     console.log("Регистрация не удалась");
+//   }
+// }
+// // function newPassport(person) {
+// //   person.passport = Math.trunc(Math.random() * 100000000);
+// // }
+
+// // newPassport(passenger);
+// checkIn(flight, passenger);
