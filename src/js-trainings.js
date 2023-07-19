@@ -1310,3 +1310,190 @@
 
 // // newPassport(passenger);
 // checkIn(flight, passenger);
+
+// // ---FIRST CLASS FEATURES фунции первого класса---
+
+// function oneWord(str) {
+//   return str.replaceAll(" ", "").toLowerCase();
+// }
+
+// // console.log(oneWord("ПрИвЕт Я пИшУ зАбОрЧиКоМ с ПрОбЕлАмИ"));
+
+// function upperFirstLetter(str) {
+//   const [first, ...other] = str.split(" ");
+//   return [first[0].toUpperCase() + first.slice(1), ...other].join(" ");
+// }
+// console.log(upperFirstLetter("привет"));
+
+// // ---HIGHER ORDER FUNCTIONS функции высшего порядка---
+
+// function transformer(str, fn) {
+//   console.log(`Это оригинальная строка: ${str}`);
+//   console.log(`Изменённая строка: ${fn(str)}`);
+// }
+
+// transformer("привет, я очень люблю JS", upperFirstLetter);
+// transformer("привет, я очень люблю JS", oneWord);
+
+// document.querySelector("h1").addEventListener("click", function () {
+//   console.log("Клик!");
+// });
+
+// // ---RETURNING A FUNCTION FROM A FUNCTION возврат функции из функции---
+
+// function hello(hiStr) {
+//   return function (name) {
+//     console.log(`${hiStr} ${name}`);
+//   };
+// }
+
+// const greeter = hello("Hi");
+
+// greeter("Misha");
+
+// hello("Здравствуйте")("Михаил");
+
+// // ---CALL---
+
+// function person(greetStr) {
+//   console.log(greetStr + " " + this.firstName + " " + this.lastName);
+// }
+
+// const person1 = {
+//   firstName: "John",
+//   lastName: "Doe",
+// };
+// const person2 = {
+//   firstName: "Mary",
+//   lastName: "Doe",
+// };
+
+// person.call(person1, "Добрый день!");
+
+// const s7 = {
+//   airlane: "s7",
+//   iCode: "s7",
+//   booking: [],
+//   book(flightNum, name) {
+//     console.log(
+//       `${name} забронировал место на самолёт компании ${this.airlane}, номер рейса ${this.iCode}${flightNum}`
+//     );
+//     this.booking.push({ flight: `${this.iCode}${flightNum}`, name });
+//   },
+// };
+
+// s7.book(2131, "Misha");
+// const book = s7.book;
+
+// const turkish = {
+//   airlane: "tr",
+//   iCode: "TR",
+//   booking: [],
+// };
+// book.call(turkish, 1122, "Dima");
+
+// // ---BIND---
+
+// const s7 = {
+//   airlane: "s7",
+//   iCode: "s7",
+//   booking: [],
+//   book(flightNum, name) {
+//     console.log(
+//       `${name} забронировал место на самолёт компании ${this.airlane}, номер рейса ${this.iCode}${flightNum}`
+//     );
+//     this.booking.push({ flight: `${this.iCode}${flightNum}`, name });
+//   },
+// };
+
+// s7.book(2131, "Misha");
+// const book = s7.book;
+
+// const turkish = {
+//   airlane: "tr",
+//   iCode: "TR",
+//   booking: [],
+// };
+// book.call(turkish, 1122, "Dima");
+
+// const bookTr = s7.book.bind(turkish, 66666666);
+
+// bookTr("Vika");
+
+// ---BASIC ARRAY METHODS---
+
+// ===SLICE===
+
+// const arr1 = ["a", "b", "c", "d", "e"];
+
+// console.log(arr1.slice(2, 4));
+// console.log(arr1);
+
+// const arr2 = arr1.slice(0);
+// console.log(arr2);
+
+// ===REVERSE===
+
+// const arr1 = ["a", "b", "c", "d", "e"];
+// console.log(arr1.reverse());
+// console.log(arr1);
+
+// // ===CONCAT===
+
+// const arr1 = ["a", "b", "c"];
+// const arr2 = ["d", "e"];
+// console.log(arr1.concat(arr2)); //или с помощью sread
+// console.log([...arr1, ...arr2]);
+
+// // ---FOR EACH (forEach)---
+
+// // ===usual example===
+
+// const arr1 = ["a", "b", "c"];
+// for (let [key, value] of arr1.entries()) {
+//   console.log(`Ключ: ${key}, Значение: ${value} `);
+// }
+
+// // ===forEach example===
+
+// arr1.forEach(function (value, key, arr) {
+//   console.log(`Ключ: ${key}, Значение: ${value} в массиве ${arr}`);
+// });
+
+// // ---FOR EACH(forEach) with MAP and SET---
+
+// const map = new Map([
+//   ["USD", "Dollars"],
+//   ["RUB", "Rubbles"],
+//   ["EUR", "Euro"],
+// ]);
+
+// // map.forEach(function (value, key, map) {
+// //   console.log(key);
+// //   console.log(value);
+// //   console.log(map);
+// // });
+
+// const set = new Set(map);
+
+// set.forEach(function (value, key, set) {
+//   console.log(key);
+//   console.log(value);
+//   console.log(set);
+// });
+
+///////////////////////
+// const rub = [100, 200, 300, 400];
+// let usd = [];
+
+// // ===WITH FOREACH===
+// rub.forEach(function (value) {
+//   usd.push((value / 72).toFixed(2));
+// });
+
+// console.log(usd);
+
+// // ===WITH MAP()===
+// const usd2 = rub.map((value) => (value / 72).toFixed(2));
+// console.log(rub);
+// console.log(usd2);
