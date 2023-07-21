@@ -52,6 +52,8 @@ const inputLoanAmount = document.querySelector(".form__input--loan-amount");
 const inputCloseUsername = document.querySelector(".form__input--user");
 const inputClosePin = document.querySelector(".form__input--pin");
 
+//Вывод на страницу всех приходов и уходов
+
 function displayMovements(movements) {
   containerMovements.innerHTML = "";
   movements.forEach(function (value, i) {
@@ -71,6 +73,8 @@ function displayMovements(movements) {
 
 displayMovements(account1.movements);
 
+//Создание логина из ФИО в объекте
+
 function createLogIn(accs) {
   accs.forEach(function (acc) {
     acc.logIn = acc.owner
@@ -84,4 +88,32 @@ function createLogIn(accs) {
 }
 
 createLogIn(accounts);
-console.log(accounts);
+
+//Подсчёт и вывод на страницу общего баланса
+
+function calcPrintBalance(movements) {
+  const balance = movements.reduce(function (acc, val) {
+    return acc + val;
+  });
+  labelBalance.textContent = `${balance}RUB`;
+}
+
+calcPrintBalance(account1.movements);
+
+//Сумма и вывод на страницу прихода и ухода в footer
+
+function calcDisplaySum(movements) {
+  const incomes = movements
+    .filter((mov) => mov > 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumIn.textContent = `${incomes}₽`;
+
+  const out = movements
+    .filter((mov) => mov < 0)
+    .reduce((acc, mov) => acc + mov, 0);
+  labelSumOut.textContent = `${Math.abs(out)}₽`;
+
+  labelSumInterest.textContent = `${incomes + out}₽`;
+}
+
+calcDisplaySum(account1.movements);

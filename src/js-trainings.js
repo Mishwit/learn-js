@@ -1497,3 +1497,44 @@
 // const usd2 = rub.map((value) => (value / 72).toFixed(2));
 // console.log(rub);
 // console.log(usd2);
+
+// // ---FILTER---
+
+// const arr = [1, -10, 12, , 22, -35];
+
+// const filteredArr = arr.filter(function (val) {
+//   return val > 0;
+// });
+
+// console.log(filteredArr);
+
+// // ---REDUCE---
+
+// const arr = [5, 5, 5, 5];
+
+// const sum = arr.reduce(function (acc, val, key, arr) {
+//   //acc = accamulator
+//   return acc + val;
+// }, 100);
+
+// console.log(sum);
+
+// const arr = [5000, 3400, -150, -790, -3210, -1000, 8500, -30];
+// const max = arr.reduce(function (acc, val) {
+//   if (acc > val) {
+//     return acc;
+//   } else {
+//     return val;
+//   }
+// }, arr[0]);
+
+// console.log(max);
+
+// // ---FIND---
+
+// const arr = [10, 5, -2, -5, 23, -7];
+
+// const firstMinusNum = arr.find(function (num) {
+//   return num < 0;
+// });
+// console.log(firstMinusNum);
