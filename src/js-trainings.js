@@ -1538,3 +1538,30 @@
 //   return num < 0;
 // });
 // console.log(firstMinusNum);
+
+// // ---SOME---
+
+// const arr = [1, 2, 3, 4, -5, -10]; ///вернёт true если какой-то элемент будет соответствовать треованиям функции
+
+// const someResult = arr.some(function (val) {
+//   return val > 0;
+// });
+
+// console.log(someResult);
+
+// // ---EVERY---
+
+// const arr1 = [1, 2, 3, 4, -5, -10]; ///вернёт true если все будут соответствовать треованиям функции
+
+// const everyResult = arr.every(function (val) {
+//   return val > 0;
+// });
+
+// console.log(everyResult);
+
+// // ---FLAT---
+
+// const arr = [[1, [2, 3]], 5, [5, [6, 7]]];
+
+// console.log(arr.flat(1));
+// console.log(arr.flat(2));
