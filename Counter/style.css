@@ -1,0 +1,42 @@
+header {
+  height: 90px;
+  background-color: antiquewhite;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 550px;
+  background-color: beige;
+}
+
+footer {
+  height: 90px;
+  background-color: antiquewhite;
+}
+
+button {
+  padding: 10px 30px;
+  background-color: azure;
+}
+
+.counter_background {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  width: 600px;
+  background-color: grey;
+  gap: 10px;
+}
+
+.counter {
+  display: flex;
+}
+
+.number {
+  padding: 9px 30px;
+  background-color: bisque;
+}
