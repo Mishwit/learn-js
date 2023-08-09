@@ -19,6 +19,7 @@ footer {
 button {
   padding: 10px 30px;
   background-color: azure;
+  cursor: pointer;
 }
 
 .counter_background {
