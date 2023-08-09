@@ -5,30 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Counter</title>
     <link rel="stylesheet" href="./style.css" />
+    <script defer src="./js.js"></script>
   </head>
   <body>
     <header></header>
     <main>
       <div class="counter_background">
         <div class="counter">
-          <button type="button" onClick="dec3()">-3</button>
+          <button id="dec3" type="button" onClick="dec(3)">-3</button>
 
-          <button type="button" onClick="dec2()">-2</button>
+          <button id="dec2" type="button" onClick="dec(2)">-2</button>
 
-          <button type="button" onClick="dec1()">-1</button>
+          <button type="button" onClick="dec(1)">-1</button>
 
           <div class="number" id="num">0</div>
 
-          <button type="button" onClick="inc1()">+1</button>
+          <button type="button" onClick="inc(1)">+1</button>
 
-          <button type="button" onClick="inc2()">+2</button>
+          <button type="button" onClick="inc(2)">+2</button>
 
-          <button type="button" onClick="inc3()">+3</button>
+          <button type="button" onClick="inc(3)">+3</button>
         </div>
-        <button type="button" onClick="res()">Reset</button>
+        <button type="reset" onClick="res()">Reset</button>
       </div>
     </main>
     <footer></footer>
-    <script src="./js.js"></script>
   </body>
 </html>

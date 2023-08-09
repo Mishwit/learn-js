@@ -17,9 +17,16 @@ footer {
 }
 
 button {
-  padding: 10px 30px;
+  width: 50px;
+  height: 30px;
   background-color: azure;
   cursor: pointer;
+}
+
+.button_disabled {
+  opacity: 0, 5;
+  cursor: default;
+  background-color: rgb(220, 220, 220);
 }
 
 .counter_background {
@@ -38,6 +45,9 @@ button {
 }
 
 .number {
-  padding: 9px 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
   background-color: bisque;
 }
