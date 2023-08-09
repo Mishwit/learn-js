@@ -1565,3 +1565,22 @@
 
 // console.log(arr.flat(1));
 // console.log(arr.flat(2));
+
+// ---SORT---
+
+//если число а больше числа b, то поменяй элементы местами (Больше 0)
+
+//если число а меньше числа b, то оставляй как есть (Меньше 0)
+
+const arr = [200, 450, -400, 3000, -650, -130, 70, 1300];
+console.log(
+  arr.sort(function (a, b) {
+    if (a > b) {
+      return 1;
+    }
+    if (a < b) {
+      return -1;
+    }
+  })
+);
+console.log(arr);
