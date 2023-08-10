@@ -1566,15 +1566,17 @@
 // console.log(arr.flat(1));
 // console.log(arr.flat(2));
 
-const sentence = "The quick brown fox jumps over a lazy dog";
+// --------------------------------------
 
-const capitalNames = (strSentence) => {
-  const arrSentence = strSentence.split(" ");
-  const newUpperSentence = arrSentence.map(
-    (word) => word[0].toUpperCase() + word.slice(1)
-  );
-  return newUpperSentence.join(" ");
-};
+// const sentence = "The quick brown fox jumps over a lazy dog";
 
-const newSentence = capitalNames(sentence);
-console.log(newSentence);
+// const capitalNames = (strSentence) => {
+//   const arrSentence = strSentence.split(" ");
+//   const newUpperSentence = arrSentence.map(
+//     (word) => word[0].toUpperCase() + word.slice(1)
+//   );
+//   return newUpperSentence.join(" ");
+// };
+
+// const newSentence = capitalNames(sentence);
+// console.log(newSentence);
