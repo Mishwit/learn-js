@@ -17,12 +17,6 @@ button {
   cursor: pointer;
 }
 
-.button_disabled {
-  opacity: 0.5;
-  cursor: default;
-  background-color: rgb(220, 220, 220);
-}
-
 .counter_background {
   display: flex;
   flex-direction: column;
