@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script defer src="./scripts.js"></script>
+  </head>
+  <body>
+    <main>
+      <div class="counter_background">
+        <div class="counter">
+          <button type="button" onClick="dec(3)">-3</button>
+
+          <button type="button" onClick="dec(2)">-2</button>
+
+          <button type="button" onClick="dec(1)">-1</button>
+
+          <div class="number" id="num">0</div>
+
+          <button type="button" onClick="inc(1)">+1</button>
+
+          <button type="button" onClick="inc(2)">+2</button>
+
+          <button type="button" onClick="inc(3)">+3</button>
+        </div>
+        <button type="reset" onClick="res()">Reset</button>
+      </div>
+    </main>
+  </body>
+</html>
