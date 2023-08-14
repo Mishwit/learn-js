@@ -1566,17 +1566,90 @@
 // console.log(arr.flat(1));
 // console.log(arr.flat(2));
 
-// --------------------------------------
+// // ---SORT---
 
-// const sentence = "The quick brown fox jumps over a lazy dog";
+// const arr = ["e", "b", "a", "c", "d"];
 
-// const capitalNames = (strSentence) => {
-//   const arrSentence = strSentence.split(" ");
-//   const newUpperSentence = arrSentence.map(
-//     (word) => word[0].toUpperCase() + word.slice(1)
-//   );
-//   return newUpperSentence.join(" ");
-// };
+// console.log(arr.sort()); //изменяет массив, смотрит по Юникоду
+// console.log(arr); //изменённый массив
 
-// const newSentence = capitalNames(sentence);
-// console.log(newSentence);
+// //Если число a больше числа b, то поменяй элементы местами (Больше 0)
+// //Если число a меньше числа b, то оставляй как есть (Меньше 0)
+// //Сравнивает числа попрарно, и меняет их местами, например 200 и 450 это a и b, и так далее
+// const arrMov = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// console.log(arrMov.sort((a, b) => a - b));
+
+// console.log(arrMov);
+
+// // ---FILL--- изменяет оригинальный массив
+// const arr = [1, 2, 3, 4, 5];
+// arr.fill("Hello", 2, 4); //Со второго и до четёртого подставит, по индексу
+// console.log(arr);
+
+// // ---Array.from---не изменяет оригинальный массив
+
+// const str = "12345";
+// console.log(
+//   Array.from(str, (val, i) => {
+//     return "Число " + val;
+//   })
+// );
+
+// // ---PARSEINT---убирает строку после числа
+// console.log(Number.parseInt("12px")); ///сработает
+// console.log(Number.parseInt("px12")); ///NaN
+// console.log(Number.parseInt("12.5px")); ///12
+
+// // ---PARSEFLOAT---
+// console.log(Number.parseFloat("12.5545px")); ///работает с точкой и убирает строку
+
+// // ---MATH.MAX---
+// console.log(Math.max(123, 223, 323));
+
+// // ---MATH.MIN---
+// console.log(Math.min(123, 223, 323));
+
+// // ---MATH.TRUNC---округляет до целого
+// console.log(Math.trunc(13.72222333333));
+
+// // ---MATH.RANDOM---рандом от 0 до 1
+// console.log(Math.random());
+
+// // ---MATH.RANDOM---в диапазоне от и до
+// function calcRandom(min, max) {
+//   return Math.trunc(Math.random() * (max - min) + 1) + min;
+// }
+
+// console.log(calcRandom(10, 100));
+
+// // ---MATH.ROUND---округление до ближайшего целого
+// console.log(Math.round(2.4));
+
+// // ---MATH.CEIL---///округление в большую
+// console.log(Math.ceil(2.1));
+
+// // ---MATH.FLOOR---округление в меньшую
+// console.log(Math.floor(2.7));
+
+// // ---TOFIXED---///конвертирует число в строку, но обрезает до нужных числел после точки, можно сделать числом поставив + перед вычислениями +(1.23456789).toFixed(2)
+
+// console.log((1.23456789).toFixed(2));
+
+// // ---BIGINT---нельзя испольщзовать с MATH или обычными числами, но сравнение работать будет
+
+// console.log(2 ** 53 - 1); //самое большое число, остальное может быть с ошибками
+
+// console.log(typeof 9007199254740991n);
+
+let date = new Date("Dec 6 2025 17:34:50");
+date = new Date(2025, 5, 17, 23, 50, 800);
+
+date.setFullYear(2035);
+
+console.log(date.getFullYear());
+console.log(date.getMonth());
+console.log(date.getDate());
+console.log(date.getDay());
+console.log(date.getMinutes());
+console.log(date.getSeconds());
+console.log(date.getMilliseconds());
