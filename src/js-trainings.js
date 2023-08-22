@@ -1641,15 +1641,38 @@
 
 // console.log(typeof 9007199254740991n);
 
-let date = new Date("Dec 6 2025 17:34:50");
-date = new Date(2025, 5, 17, 23, 50, 800);
+// let date = new Date("Dec 6 2025 17:34:50");
+// date = new Date(2025, 5, 17, 23, 50, 800);
 
-date.setFullYear(2035);
+// date.setFullYear(2035);
 
-console.log(date.getFullYear());
-console.log(date.getMonth());
-console.log(date.getDate());
-console.log(date.getDay());
-console.log(date.getMinutes());
-console.log(date.getSeconds());
-console.log(date.getMilliseconds());
+// console.log(date.getFullYear());
+// console.log(date.getMonth());
+// console.log(date.getDate());
+// console.log(date.getDay());
+// console.log(date.getMinutes());
+// console.log(date.getSeconds());
+// console.log(date.getMilliseconds());
+
+// // ---SETTIMEOUT---
+
+// setTimeout(
+//   (word1, word2) => {
+//     console.log(`${word1} ${word2}`);
+//   },
+//   2000,
+//   "hello",
+//   "world"
+// );
+// if (true) {
+//   clearTimeout(timer1);
+// }
+
+// // ---SETINTERVAL---
+// setInterval(() => {
+//   console.log("Hello!");
+// }, 1000);
+
+// if (true) {
+//   clearInterval(timer2);
+// }

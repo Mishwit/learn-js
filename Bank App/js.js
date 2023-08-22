@@ -10,9 +10,9 @@ const account1 = {
     "2020-01-28T09:15:04.904Z",
     "2020-04-01T10:17:24.185Z",
     "2020-05-08T14:11:59.604Z",
-    "2023-01-29T17:01:17.194Z",
-    "2023-01-31T23:36:17.929Z",
-    "2023-02-02T10:51:36.790Z",
+    "2023-08-17T17:01:17.194Z",
+    "2023-08-20T23:36:17.929Z",
+    "2023-08-21T10:51:36.790Z",
   ],
   currency: "RUB",
   locale: "pt-PT",
@@ -97,6 +97,25 @@ const inputLoanAmount = document.querySelector(".form__input--loan-amount");
 const inputCloseUsername = document.querySelector(".form__input--user");
 const inputClosePin = document.querySelector(".form__input--pin");
 
+function formatMovementDate(date) {
+  const calcDaysPassed = function (date1, date2) {
+    return Math.round((date1 - date2) / (1000 * 60 * 60 * 24));
+  };
+
+  const daysPassed = calcDaysPassed(new Date(), date);
+  console.log(daysPassed);
+
+  if (daysPassed === 0) return "Сегодня";
+  if (daysPassed === 1) return "Вчера";
+  if (daysPassed >= 2 && daysPassed <= 4) return `Прошло ${daysPassed} дня`;
+  if (daysPassed <= 7) return `Прошло ${daysPassed} дней`;
+  const year = date.getFullYear();
+  const month = `${date.getMonth() + 1}`.padStart(2, 0);
+  const day = `${date.getDate()}`.padStart(2, 0);
+  const hours = `${date.getHours()}`.padStart(2, 0);
+  const minutes = `${date.getMinutes()}`.padStart(2, 0);
+  return `${day}/${month}/${year} ${hours}:${minutes}`;
+}
 //Вывод на страницу всех приходов и уходов
 
 function displayMovements(acc, sort = false) {
@@ -109,13 +128,9 @@ function displayMovements(acc, sort = false) {
     const type = value > 0 ? "deposit" : "withdrawal";
     const typeMessage = value > 0 ? "Внесение" : "Снятие";
     const date = new Date(acc.movementsDates[i]);
-    const year = date.getFullYear();
-    const month = `${date.getMonth() + 1}`.padStart(2, 0);
-    const day = `${date.getDate()}`.padStart(2, 0);
-    const hours = `${date.getHours()}`.padStart(2, 0);
-    const minutes = `${date.getMinutes()}`.padStart(2, 0);
-    const displayDate =
-      (labelDate.textContent = `${day}/${month}/${year} ${hours}:${minutes}`);
+
+    const displayDate = formatMovementDate(date);
+
     const html = `
     <div class="movements__row">
     <div class="movements__type movements__type--${type}">
@@ -170,14 +185,38 @@ function calcDisplaySum(movements) {
   labelSumInterest.textContent = `${incomes + out}₽`;
 }
 
+//обновление интерфейса
 function updateUI(acc) {
   displayMovements(acc);
   calcPrintBalance(acc);
   calcDisplaySum(acc.movements);
 }
 
+//время - timeout & interval
+
+function startLogOut() {
+  let time = 600;
+
+  function tick() {
+    const min = String(Math.trunc(time / 60)).padStart(2, 0);
+    const seconds = String(time % 60).padStart(2, 0);
+    labelTimer.textContent = `${min}:${seconds}`;
+
+    if (time === 0) {
+      clearInterval(timer);
+      containerApp.style.opacity = 0;
+    }
+    time--;
+  }
+  tick();
+
+  const timer = setInterval(tick, 1000);
+  return timer;
+}
+
 //кнопка входа в аккаунт
 let currentAccount;
+let timer;
 btnLogin.addEventListener("click", function (e) {
   e.preventDefault();
 
@@ -189,18 +228,32 @@ btnLogin.addEventListener("click", function (e) {
     containerApp.style.opacity = 100;
 
     inputLoginPin.value = inputLoginUsername.value = "";
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = `${now.getMonth() + 1}`.padStart(2, 0);
-    const date = `${now.getDate()}`.padStart(2, 0);
-    const hours = `${now.getHours()}`.padStart(2, 0);
-    const minutes = `${now.getMinutes()}`.padStart(2, 0);
-    labelDate.textContent = `${date}/${month}/${year} ${hours}:${minutes}`;
 
+    //обновление текущей даты после входа в акк
+    const local = navigator.language;
+    const options = {
+      year: "numeric",
+      month: "numeric",
+      day: "numeric",
+      weekday: "short",
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
+      timeZoneName: "short",
+      hour12: false,
+    };
+    labelDate.textContent = Intl.DateTimeFormat(local, options).format(
+      new Date()
+    );
+    if (timer) {
+      clearInterval(timer);
+    }
+    timer = startLogOut();
     updateUI(currentAccount);
   }
 });
 
+//перевод денег на другой аккаунт
 btnTransfer.addEventListener("click", function (e) {
   e.preventDefault();
   const recieveAcc = accounts.find(function (acc) {
@@ -216,8 +269,12 @@ btnTransfer.addEventListener("click", function (e) {
     currentAccount.movements.push(-amount);
     recieveAcc.movements.push(amount);
 
+    //добавление даты в mov
     currentAccount.movementsDates.push(new Date().toISOString());
 
+    //обновление таймера при переводе
+    clearInterval(timer);
+    timer = startLogOut();
     updateUI(currentAccount);
     inputTransferTo.value = inputTransferAmount.value = "";
   }
@@ -246,7 +303,13 @@ btnLoan.addEventListener("click", function (e) {
   const amount = Number(inputLoanAmount.value);
   if (amount > 0) {
     currentAccount.movements.push(amount);
+
+    //добавление даты в массив movementsDates
     currentAccount.movementsDates.push(new Date().toISOString());
+
+    //обновление таймера при внесении
+    clearInterval(timer);
+    timer = startLogOut();
     updateUI(currentAccount);
   }
   inputLoanAmount.value = "";
@@ -262,4 +325,11 @@ btnSort.addEventListener("click", (e) => {
   e.preventDefault();
   displayMovements(currentAccount, !sorted);
   sorted = !sorted;
+});
+
+//изменение значка валюты
+labelBalance.addEventListener("click", () => {
+  Array.from(document.querySelectorAll(".movements__value"), (val, i) => {
+    return (val.innerText = val.textContent.replace("₽", "RUB"));
+  });
 });
