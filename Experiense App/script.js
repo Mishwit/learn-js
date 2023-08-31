@@ -30,6 +30,7 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
+//прокрутка страницы до нужного места
 const btnScroll = document.querySelector(".btn--scroll-to");
 const section1 = document.querySelector("#section--1");
 
@@ -37,32 +38,33 @@ btnScroll.addEventListener("click", () => {
   section1.scrollIntoView({ behavior: "smooth" });
 });
 
-//остановка события
+const nav = document.querySelector(".nav__links");
 
-// const h1 = document.querySelector("h1");
+nav.addEventListener("click", function (e) {
+  e.preventDefault();
+  if (e.target.classList.contains("nav__link")) {
+    const id = e.target.getAttribute("href");
+    document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+  }
+});
 
-// const alertH1 = () => {
-//   alert("hello");
-// };
+//работа табов
 
-// h1.addEventListener("mouseenter", alertH1);
+const tabs = document.querySelectorAll(".operations__tab");
+const tabContainer = document.querySelector(".operations__tab-container");
+const tabsContent = document.querySelectorAll(".operations__content");
 
-// setTimeout(() => {
-//   h1.removeEventListener("mouseenter", alertH1);
-// }, 4000);
+tabContainer.addEventListener("click", function (e) {
+  e.preventDefault();
+  const clicked = e.target.closest(".operations__tab");
+  if (!clicked) return;
+  tabs.forEach((tab) => tab.classList.remove("operations__tab--active"));
+  clicked.classList.add("operations__tab--active");
+  tabsContent.forEach((content) =>
+    content.classList.remove("operations__content--active")
+  );
 
-const randomInt = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-};
-
-randomColor = () => {
-  return `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
-};
-
-const nav = document.querySelector(".nav");
-const link = document.querySelector(".nav-link");
-const navLinks = document.querySelector(".nav-links");
-
-nav.addEventListener("click", (e) => {
-  this.style.backgroundColor = randomColor();
+  document
+    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add("operations__content--active");
 });
