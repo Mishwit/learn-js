@@ -1676,3 +1676,66 @@
 // if (true) {
 //   clearInterval(timer2);
 // }
+
+// // ---DIFFERENCES BETWEEN CLASSES AND CONSTRUCTOR FUNCTIONS---
+
+// // ===CONSTRUCTOR FUNCTION===
+
+// function User(firstName, lastName, age) {
+//   this.firstName = firstName;
+//   this.lastName = lastName;
+//   this.age = age;
+// }
+
+// User.prototype.calcAge = function () {
+//   return 2023 - this.age;
+// };
+
+// const misha = new User("Mikhail", "Garrilove", 1998);
+
+// console.log(misha);
+// console.log(misha.calcAge());
+
+// // ===CLASS===
+
+// class User1 {
+//   constructor(firstName, lastName, age) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//     this.age = age;
+//   }
+//   calcAge() {
+//     return 2023 - this.age;
+//   }
+// }
+
+// const nastya = new User1("Anastasia", "Tigrinaya", 1999);
+// console.log(nastya);
+// console.log(nastya.calcAge());
+
+// // ---GETTER--- позволяет что-то быстро высчитать, в момент чтения, если нужна какая-то математика, может работать и в классах
+
+// const user = {
+//   firstName: "Misha",
+//   lastName: "Gavrilov",
+//   age: 25,
+//   get birthYear() {
+//     return new Date().getFullYear() - this.age;
+//   },
+// };
+
+// ===GETTER INSIDE CLASSES===
+
+class User {
+  constructor(firstName, lastName, age) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+  }
+  get birthYear() {
+    return new Date().getFullYear() - this.age;
+  }
+}
+
+const nastya = new User("Anastasia", "Tigrinaya", 1999);
+console.log(nastya);
