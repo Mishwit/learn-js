@@ -1724,18 +1724,67 @@
 //   },
 // };
 
-// ===GETTER INSIDE CLASSES===
+// // ===GETTER INSIDE CLASSES===
+
+// class User {
+//   constructor(firstName, lastName, age) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//     this.age = age;
+//   }
+//   get birthYear() {
+//     return new Date().getFullYear() - this.age;
+//   }
+// }
+
+// const nastya = new User("Anastasia", "Tigrinaya", 1999);
+// console.log(nastya);
+
+// ===SETTER===
 
 class User {
-  constructor(firstName, lastName, age) {
+  constructor(firstName, lastName, birthYear) {
     this.firstName = firstName;
     this.lastName = lastName;
-    this.age = age;
+    this.age;
+    this.birthYear = birthYear;
   }
   get birthYear() {
     return new Date().getFullYear() - this.age;
   }
+  set birthYear(val) {
+    const year = "" + val;
+    if (year.length < 4) {
+      alert("Вы ввели меньше 4-х символов");
+      return;
+    }
+    this.age = new Date().getFullYear() - year;
+  }
 }
-
 const nastya = new User("Anastasia", "Tigrinaya", 1999);
 console.log(nastya);
+
+////
+
+// class User1 {
+//   constructor(fullName) {
+//     this.firstName;
+//     this.lastName;
+//     this.fullName = fullName;
+//   }
+//   get fullName() {
+//     return `${this.firstName} ${this.lastName}`;
+//   }
+//   set fullName(val) {
+//     if (val.lenght < 3) {
+//       alert("Имя некорректно. Должно быть больше 3-х символов");
+//       return;
+//     }
+//     const name = val.split(" ");
+//     this.firstName = name[0];
+//     this.lastName = name[1];
+//   }
+// }
+
+// const nastya = new User("Anastasia Tigrinaya");
+// console.log(nastya);
