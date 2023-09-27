@@ -1740,29 +1740,29 @@
 // const nastya = new User("Anastasia", "Tigrinaya", 1999);
 // console.log(nastya);
 
-// ===SETTER===
+// // ===SETTER===
 
-class User {
-  constructor(firstName, lastName, birthYear) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.age;
-    this.birthYear = birthYear;
-  }
-  get birthYear() {
-    return new Date().getFullYear() - this.age;
-  }
-  set birthYear(val) {
-    const year = "" + val;
-    if (year.length < 4) {
-      alert("Вы ввели меньше 4-х символов");
-      return;
-    }
-    this.age = new Date().getFullYear() - year;
-  }
-}
-const nastya = new User("Anastasia", "Tigrinaya", 1999);
-console.log(nastya);
+// class User {
+//   constructor(firstName, lastName, birthYear) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//     this.age;
+//     this.birthYear = birthYear;
+//   }
+//   get birthYear() {
+//     return new Date().getFullYear() - this.age;
+//   }
+//   set birthYear(val) {
+//     const year = "" + val;
+//     if (year.length < 4) {
+//       alert("Вы ввели меньше 4-х символов");
+//       return;
+//     }
+//     this.age = new Date().getFullYear() - year;
+//   }
+// }
+// const nastya = new User("Anastasia", "Tigrinaya", 1999);
+// console.log(nastya);
 
 ////
 
@@ -1788,3 +1788,77 @@ console.log(nastya);
 
 // const nastya = new User("Anastasia Tigrinaya");
 // console.log(nastya);
+
+// ===OBJECT.CREATE===
+
+// ---EXAMPLE 1---
+
+// class User {
+//   constructor(firstName, lastName, age) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//     this.age = age;
+//   }
+//   calcBirth() {
+//     return new Date().getFullYear() - this.age;
+//   }
+// }
+// const nastya = new User("Anastasia", "Tigrinaya", 1999);
+// console.log(nastya.calcBirth());
+
+// ---EXAMPLE 2---
+
+// const newProto = {
+//   calcBirth() {
+//     console.log(2037 - this.age);
+//   },
+
+//   init(firstName, age) {
+//     this.firstName = firstName;
+//     this.age = age;
+//   },
+// };
+
+// const ivan = Object.create(newProto);
+
+// ivan.init("Ivan", 35);
+
+// console.log(ivan);
+
+// console.log(ivan.calcBirth()); //2002
+
+function Employee(firstName, lastName, age, post) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.age = age;
+  this.post = post;
+}
+
+Employee.prototype.calcBirth = function () {
+  console.log(new Date().getFullYear() - this.age);
+};
+
+const programer = new Employee("Михаил", "Гаврилов", 25, "Программист");
+
+programer.calcBirth();
+console.log(programer);
+
+/////////////////////////
+
+function Artist(firstName, lastName, age, post, password) {
+  Employee.call(this, firstName, lastName, age, post);
+  this.password = password;
+}
+
+Artist.prototype = Object.create(Employee.prototype);
+
+Artist.prototype.sayHello = function () {
+  console.log("Привет! Я метод художницы, Тигриная художница!");
+};
+
+const artist = new Artist("Анастасия", "Тигриная", 24, "Художник", "password");
+
+artist.calcBirth();
+console.log(artist);
+
+artist.sayHello();
