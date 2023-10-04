@@ -1827,38 +1827,170 @@
 
 // console.log(ivan.calcBirth()); //2002
 
-function Employee(firstName, lastName, age, post) {
-  this.firstName = firstName;
-  this.lastName = lastName;
-  this.age = age;
-  this.post = post;
-}
+// function Employee(firstName, lastName, age, post) {
+//   this.firstName = firstName;
+//   this.lastName = lastName;
+//   this.age = age;
+//   this.post = post;
+// }
 
-Employee.prototype.calcBirth = function () {
-  console.log(new Date().getFullYear() - this.age);
-};
+// Employee.prototype.calcBirth = function () {
+//   console.log(new Date().getFullYear() - this.age);
+// };
 
-const programer = new Employee("Михаил", "Гаврилов", 25, "Программист");
+// const programer = new Employee("Михаил", "Гаврилов", 25, "Программист");
 
-programer.calcBirth();
-console.log(programer);
+// programer.calcBirth();
+// console.log(programer);
+
+// /////////////////////////
+
+// function Artist(firstName, lastName, age, post, password) {
+//   Employee.call(this, firstName, lastName, age, post);
+//   this.password = password;
+// }
+
+// Artist.prototype = Object.create(Employee.prototype);
+
+// Artist.prototype.sayHello = function () {
+//   console.log("Привет! Я метод художницы, Тигриная художница!");
+// };
+
+// const artist = new Artist("Анастасия", "Тигриная", 24, "Художник", "password");
+
+// artist.calcBirth();
+// console.log(artist);
+
+// artist.sayHello();
+
+// ===CREATING CHILD CLASSES THROUGH CLASS SYNTAX===
 
 /////////////////////////
 
-function Artist(firstName, lastName, age, post, password) {
-  Employee.call(this, firstName, lastName, age, post);
-  this.password = password;
+// function Artist(firstName, lastName, age, post, password) {
+//   Employee.call(this, firstName, lastName, age, post);
+//   this.password = password;
+// }
+
+// Artist.prototype = Object.create(Employee.prototype);
+
+// Artist.prototype.sayHello = function () {
+//   console.log("Привет! Я метод художницы, Тигриная художница!");
+// };
+
+// const artist = new Artist("Анастасия", "Тигриная", 24, "Художник", "password");
+
+// class Employee {
+//   constructor(firstName, lastName, age, post) {
+//     this.firstName = firstName;
+//     this.lastName = lastName;
+//     this.age = age;
+//     this.post = post;
+//   }
+//   calcBirth() {
+//     console.log(new Date().getFullYear() - this.age);
+//   }
+// }
+
+// class Artist extends Employee {
+//   constructor(firstName, lastName, age, post, password) {
+//     super(firstName, lastName, age, post);
+//     this.password = password;
+//   }
+//   sayHello() {
+//     console.log("Привет! Я метод художницы, Тигриная художница!");
+//   }
+// }
+
+// const artist = new Artist("Анастасия", "Тигриная", 24, "Художник", "password");
+// artist.calcBirth();
+// artist.sayHello();
+
+// // ===VARIABLES IN CLASSES===
+
+// class Account {
+//   movements = [];
+//   constructor(owner, currency, pin) {
+//     this.owner = owner;
+//     this.currency = currency;
+//     this.pin = pin;
+//     console.log(`Вы создали аккаунт, ${owner}`);
+//   }
+//   sayHi() {
+//     console.log("Hello!");
+//   }
+// }
+
+// const michael = new Account("Michael", "Rub", 1111);
+// console.log(michael);
+// // const anastasia = new Account("Anastasia", "EUR", 2222);
+// // console.log(anastasia);
+
+// // ===PROPERTY ENCAPSULATION===
+// //Инкапсуляция - это объединение функций и данных в рамках одной структуры, внутреннее состояние которой (данные) скрыто от внешенго мира
+
+// class Account {
+//   _movements = [];
+//   constructor(owner, currency, pin) {
+//     this.owner = owner;
+//     this.currency = currency;
+//     this._pin = pin; //нижнее подчёркивание - общепринятое обозначение приватности этих данных
+//     console.log(`Вы создали аккаунт, ${owner}`);
+//   }
+//   sayHi() {
+//     console.log("Hello!");
+//   }
+//   changePin(password) {
+//     this._pin = password;
+//   }
+//   deposit(val) {
+//     this._movements.push(val);
+//   }
+
+//   withdraw(val) {
+//     this.deposit(-val);
+//   }
+//   getMov() {
+//     return this._movements;
+//   }
+// }
+
+// const michael = new Account("Michael", "Rub", 1111);
+// console.log(michael);
+
+// ===NEW STANDART OF PROPERTY ENCAPSULATION===
+
+class Account {
+  #movements = []; // # делает данные приватными
+  #pin;
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this.#pin = pin; //нижнее подчёркивание - общепринятое обозначение приватности этих данных
+    console.log(`Вы создали аккаунт, ${owner}`);
+  }
+  sayHi() {
+    console.log("Hello!");
+  }
+  changePin(password) {
+    this.#pin = password;
+  }
+  deposit(val) {
+    this.#movements.push(val);
+    return this;
+  }
+
+  withdraw(val) {
+    this.deposit(-val);
+    return this;
+  }
+  getMov() {
+    console.log(this.#movements);
+  }
 }
 
-Artist.prototype = Object.create(Employee.prototype);
+const michael = new Account("Michael", "Rub", 1111);
 
-Artist.prototype.sayHello = function () {
-  console.log("Привет! Я метод художницы, Тигриная художница!");
-};
+console.log(michael);
 
-const artist = new Artist("Анастасия", "Тигриная", 24, "Художник", "password");
-
-artist.calcBirth();
-console.log(artist);
-
-artist.sayHello();
+michael.deposit(300).deposit(200).withdraw(100).getMov();
